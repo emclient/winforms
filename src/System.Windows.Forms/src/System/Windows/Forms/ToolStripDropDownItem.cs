@@ -737,7 +737,7 @@ namespace System.Windows.Forms
 
             // Traversing the tree of DropDownMenuItems non-recursively to set new
             // Font (where necessary because not inherited from parent), DeviceDpi and reset the scaling.
-            var itemsStack = new Collections.Generic.Stack<ToolStripDropDownItem>();
+            var itemsStack = new Stack<ToolStripDropDownItem>();
 
             itemsStack.Push(this);
 

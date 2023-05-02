@@ -314,7 +314,7 @@ namespace System.Windows.Forms
                             {
                                 if (DpiHelper.IsScalingRequired)
                                 {
-                                    DpiHelper.ScaleBitmapLogicalToDevice(ref indeterminateCheckedBmp);
+                                    DpiHelper.ScaleBitmapLogicalToDevice(ref indeterminateCheckedBmp, DeviceDpi);
                                 }
 
                                 t_indeterminateCheckedImage = indeterminateCheckedBmp;
@@ -339,7 +339,7 @@ namespace System.Windows.Forms
                             {
                                 if (DpiHelper.IsScalingRequired)
                                 {
-                                    DpiHelper.ScaleBitmapLogicalToDevice(ref checkedBmp);
+                                    DpiHelper.ScaleBitmapLogicalToDevice(ref checkedBmp, DeviceDpi);
                                 }
 
                                 t_checkedImage = checkedBmp;
@@ -677,6 +677,10 @@ namespace System.Windows.Forms
                 _scaledDefaultPadding = DpiHelper.LogicalToDeviceUnits(s_defaultPadding, value);
                 _scaledDefaultDropDownPadding = DpiHelper.LogicalToDeviceUnits(s_defaultDropDownPadding, value);
                 _scaledCheckMarkBitmapSize = DpiHelper.LogicalToDeviceUnits(s_checkMarkBitmapSize, value);
+                t_indeterminateCheckedImage?.Dispose();
+                t_indeterminateCheckedImage = null;
+                t_checkedImage?.Dispose();
+                t_checkedImage = null;
             }
         }
 
