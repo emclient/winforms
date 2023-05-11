@@ -1476,16 +1476,17 @@ namespace System.Windows.Forms
                     }
                 }
 
-                // Note: SuggestedRectangle supplied  by WM_DPICHANGED event is Dpi (not Font) scaled. if top-level window is
-                // Font scaled, we might see deviations in the expected bounds and may result in adding Scrollbars (horizontal/vertical)
-                User32.SetWindowPos(
-                    new HandleRef(this, HandleInternal),
-                    User32.HWND_TOP,
-                    suggestedRectangle.X,
-                    suggestedRectangle.Y,
-                    suggestedRectangle.Width,
-                    suggestedRectangle.Height,
-                    User32.SWP.NOZORDER | User32.SWP.NOACTIVATE);
+                if (IsHandleCreated)
+                {
+                    User32.SetWindowPos(
+                        new HandleRef(this, HandleInternal),
+                        User32.HWND_TOP,
+                        suggestedRectangle.X,
+                        suggestedRectangle.Y,
+                        suggestedRectangle.Width,
+                        suggestedRectangle.Height,
+                        User32.SWP.NOZORDER | User32.SWP.NOACTIVATE);
+                }
             }
             finally
             {

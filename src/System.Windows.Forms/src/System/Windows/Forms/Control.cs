@@ -5305,6 +5305,7 @@ namespace System.Windows.Forms
                         Properties.SetObject(s_controlsCollectionProperty, null);
                     }
 
+                    ClearDpiFonts();
                     base.Dispose(disposing);
                 }
                 finally
