@@ -4,6 +4,7 @@
 
 using System.ComponentModel;
 using System.Drawing;
+using static Interop;
 
 namespace System.Windows.Forms
 {
@@ -129,7 +130,7 @@ namespace System.Windows.Forms
             if (visible
                 && IsHandleCreated
                 && DpiHelper.IsPerMonitorV2Awareness
-                && DeviceDpi != (int)PInvoke.GetDpiForWindow(this))
+                && DeviceDpi != (int)User32.GetDpiForWindow(this))
             {
                 RecreateHandle();
             }
