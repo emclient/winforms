@@ -1444,7 +1444,7 @@ public partial class Form : ContainerControl
                     Location.Y,
                     Size.Width,
                     Size.Height,
-                    SET_WINDOW_POS_FLAGS.SWP_NOZORDER);
+                    SET_WINDOW_POS_FLAGS.SWP_NOZORDER | SET_WINDOW_POS_FLAGS.SWP_NOACTIVATE);
             }
         }
 
