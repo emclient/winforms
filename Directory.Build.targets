@@ -114,4 +114,10 @@
     <Compile Include="$(RepoRoot)src\Common\src\PlatformAttributes.cs" />
   </ItemGroup>
 
+  <Target Name="_InitializeAssemblyVersion2" AfterTargets="_InitializeAssemblyVersion">
+    <PropertyGroup>
+      <FileVersion Condition="'$(FileVersion)' == '42.42.42.42424'">42.43.0.0</FileVersion>
+    </PropertyGroup>
+  </Target>
+
 </Project>
